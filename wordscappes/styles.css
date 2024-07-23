@@ -1,0 +1,378 @@
+
+body {
+	background: #624a90;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cpattern id='p' width='250' height='30' viewBox='0 0 1000 120' patternUnits='userSpaceOnUse'%3E%3Cg fill='none' stroke='%235CEEAD' stroke-width='10'%3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' opacity='0.6' /%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' opacity='0.4' /%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' opacity='0.3' /%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' opacity='0.3' /%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' opacity='0.4' /%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30' opacity='0.6' /%3E%3C/g%3E%3C/pattern%3E%3Crect height='100%25' width='100%25' fill='url(%23p)' /%3E%3C/svg%3E");
+	margin: 0 auto;
+	height: 100vh;
+	width: 100vw;
+}
+#wordscapesGame {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translate(-50%);
+	height: 400px;
+	width: 400px;
+	max-height: 100vh;
+	max-width: 100vw;
+	z-index: 10;
+}
+#wordscapesGame text {
+	font-family: "Roboto", sans-serif;
+}
+.blurry {
+	position: absolute;
+	height: 15px;
+	width: 100px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	backdrop-filter: blur(6px);
+	-moz-backdrop-filter: blur(6px); /* For Safari */
+	-webkit-backdrop-filter: blur(6px); /* For Safari */
+/* 	background-color: #C2AAEB; */
+	transition: height 200ms;
+}
+.reveal:focus > .blurry, .reveal:active > .blurry {
+	height: 0px;
+}
+.strike {
+	text-decoration: line-through;
+}
+.letter:hover > circle {
+	fill: #f577b8;
+}
+
+.letterText {
+	user-select: none;
+	pointer-events: none;
+	-webkit-transition: transform 400ms; /* Safari */
+	-moz-transition: transform 400ms; /* Safari */
+	transition: transform 400ms;
+}
+.letterCircle {
+	-webkit-transition: transform 400ms; /* Safari */
+	-moz-transition: transform 400ms; /* Safari */
+	transition: transform 400ms;
+}
+
+.letter {
+	-webkit-transition: transform 400ms; /* Safari */
+	-moz-transition: transform 400ms; /* Safari */
+	transition: transform 400ms;
+	cursor: pointer;
+}
+.shuffle, .awards {
+	cursor: pointer;
+	background: none;
+	color: #fff;
+	padding: 10px;
+	height: 65px;
+	width: 65px;
+	position: absolute;
+	top: 50%;
+	left: 20px;
+	transform:translate(0, -50%);
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.awards {
+	top: 20px;
+	transform: none;
+}
+.shuffle:hover {
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.coinDestination {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height: 55%;
+	width: 55%;
+}
+.circleBG {
+	user-select: none;
+	pointer-events: none;
+	fill: #c2aaeb;
+}
+.selected {
+	fill: #f577b8;
+	stroke: #d64485;
+}
+.circleShadow {
+	-webkit-transition: r 500ms; /* Safari */
+	transition: r 500ms;
+}
+.circleBG {
+	-webkit-transition: r 200ms; /* Safari */
+	transition: r 200ms;
+}
+.connector,
+.connectedLetters {
+	stroke: #d64485;
+}
+.currentWord {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translate(-50%);
+	font-family: "Roboto", sans-serif;
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 1.5em;
+}
+
+.noTouch {
+	user-select: none;
+	pointer-events: none;
+}
+
+/* MENU STUFF */
+#menuCheck, #menuCheckL {
+	--menuBG: #c2aaeb;
+	--menuW: 200px;
+}
+.menu > .menuInner {
+	height: calc(100% - 75px);
+	padding-bottom: 25px;
+	padding-top: 25px;
+	overflow-y: auto;
+	font-family: "Roboto", sans-serif;
+}
+.menuInner .menuInstructions {
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding: 10px;
+	text-align: center;
+}
+.menuInner button {
+	background: rgba(0, 0, 0, 0.4);
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding: 10px;
+	position: relative;
+	width: calc(var(--menuW) - 30px);
+}
+.menuInner button:hover {
+	box-shadow: inset 0px 0px 2px 1px #fff;
+}
+.menuInner::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+}
+.menuInner::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.7);
+}
+.menuInner::-webkit-scrollbar {
+	width: 6px;
+}
+.menuInner::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 3px #ccc;
+	border-radius: 10px;
+}
+#menuCheck .menu {
+	background: var(--menuBG);
+	display: block;
+	height: 100%;
+	position: fixed;
+	right: calc(var(--menuW) * -1);
+	top: 0px;
+	-webkit-transition: 300ms; /* Safari */
+	transition: 300ms;
+	width: var(--menuW);
+	z-index: 99;
+}
+#menuCheck #menuCheckBox {
+	display: none;
+}
+#menuCheck label {
+	background-color: rgba(194, 170, 235, 0.2);
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	border-radius: 50%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	color: #fff;
+	font-family: "Roboto", sans-serif;
+	cursor: pointer;
+	height: 65px;
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	-webkit-transition: right 300ms; /* Safari */
+	transition: right 300ms;
+	user-select: none;
+	width: 65px;
+	z-index: 100;
+	text-align: center;
+}
+#menuCheck label:hover {
+	border: 2px solid rgba(255, 255, 255, 1);
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+#menuCheck #menuCheckBox:checked + label {
+	content: "0";
+	box-shadow: -1px 2px 5px #000;
+	right: calc(var(--menuW) + 5px);
+}
+#menuCheck label:before {
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	width: 100px;
+}
+#menuCheck #menuCheckBox:checked + #menuCheck label {
+	right: var(--menuW);
+}
+#menuCheck #menuCheckBox:checked + label:before {
+	height: 100vh;
+	transform: translate(0, -20px);
+	width: calc(100vw - var(--menuW));
+}
+#menuCheck #menuCheckBox:checked ~ .menu {
+	box-shadow: -2px 0px 5px #000;
+	right: 0%;
+}
+
+#menuCheckL .menu {
+	background: var(--menuBG);
+	display: block;
+	height: 100%;
+	position: fixed;
+	left: calc(var(--menuW) * -1);
+	top: 0px;
+	-webkit-transition: 300ms; /* Safari */
+	transition: 300ms;
+	width: var(--menuW);
+	z-index: 99;
+}
+#menuCheckL #menuCheckBoxL {
+	display: none;
+}
+#menuCheckL label {
+	background-color: rgba(194, 170, 235, 0.2);
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	border-radius: 50%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	color: #fff;
+	font-family: "Roboto", sans-serif;
+	cursor: pointer;
+	height: 65px;
+	position: fixed;
+	left: 20px;
+	top: 20px;
+	-webkit-transition: left 300ms; /* Safari */
+	transition: left 300ms;
+	user-select: none;
+	width: 65px;
+	z-index: 100;
+	text-align: center;
+}
+#menuCheckL label:hover {
+	border: 2px solid rgba(255, 255, 255, 1);
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+#menuCheckL #menuCheckBoxL:checked + label {
+	content: "0";
+	box-shadow: -1px 2px 5px #000;
+	left: calc(var(--menuW) + 5px);
+}
+#menuCheckL label:before {
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	width: 100px;
+}
+#menuCheckL #menuCheckBoxL:checked + #menuCheckL label {
+	left: var(--menuW);
+}
+#menuCheckL #menuCheckBoxL:checked + label:before {
+	height: 100vh;
+	transform: translate(0, 20px);
+	width: calc(100vw - var(--menuW));
+}
+#menuCheckL #menuCheckBoxL:checked ~ .menu {
+	box-shadow: 2px 0px 5px #000;
+	left: 0%;
+}
+
+.wordsComplete {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.header {
+	text-align: center;
+	padding: 5px;
+	font-family: "Roboto", sans-serif;
+	color: #fff;
+}
+.newGame {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	padding: 5px;
+	border: 2px solid rgba(255,255,255,0.5);
+	background: none;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.newGame:hover {
+	border: 2px solid #fff;
+}
+.level {
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	transform: translate(-50%);
+	color: rgba(255,255,255,0.5);
+	font-size: 2em;
+	font-family: 'Roboto', sans-serif;
+}
+.coinSource {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translate(-50%);
+	height: 400px;
+	width: 400px;
+	z-index: 100000;
+	user-select: none;
+	pointer-events: none;
+}
+.awardCounter {
+	position: relative;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+}
+.paidInFull {
+	background: rgba(229, 249, 141, 1) !important;
+	color: #000 !important;
+}

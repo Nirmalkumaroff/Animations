@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="styles.css">
+<svg viewBox="0 0 100 100" id="wordscapesGame">
+	<circle class="circleShadow" cx="50" cy="50" r="38" />
+	<circle class="circleBG" cx="50" cy="50" r="40" />
+	<path class="connector" d="" stroke-linecap="round" stroke-width="4" fill="none" />
+	<path class="connectedLetters" d="" stroke-linecap="round" stroke-width="4" fill="none" />
+	<g id="gameArea">
+		<g class="letter" data-letter="G" data-letter-id="G64311bb0-cb21-4dbb-bfe7-13607d65c2fb" transform="translate(77, 50)">
+			<circle class="letterCircle" cx="0" cy="0" r="11" fill="rgba(255,255,255,0.5)"></circle>
+			<text class="letterText" x="0" y="2" font-size="16" text-anchor="middle" dominant-baseline="middle">G</text>
+		</g>
+		<g class="letter" data-letter="R" data-letter-id="R510ca42b-73a7-4e59-823b-b8eb7fd75d4a" transform="translate(63.5, 73.383)">
+			<circle class="letterCircle" cx="0" cy="0" r="11" fill="rgba(255,255,255,0.5)"></circle>
+			<text class="letterText" x="0" y="2" font-size="16" text-anchor="middle" dominant-baseline="middle">R</text>
+		</g>
+		<g class="letter" data-letter="E" data-letter-id="E3e5c2516-d71b-4993-a7b5-79d11ddff267" transform="translate(36.5, 73.383)">
+			<circle class="letterCircle" cx="0" cy="0" r="11" fill="rgba(255,255,255,0.5)"></circle>
+			<text class="letterText" x="0" y="2" font-size="16" text-anchor="middle" dominant-baseline="middle">E</text>
+		</g>
+		<g class="letter" data-letter="E" data-letter-id="E8dfa375c-dc14-4942-ad07-1f8f29766f8c" transform="translate(23, 50)">
+			<circle class="letterCircle" cx="0" cy="0" r="11" fill="rgba(255,255,255,0.5)"></circle>
+			<text class="letterText" x="0" y="2" font-size="16" text-anchor="middle" dominant-baseline="middle">E</text>
+		</g>
+		<g class="letter" data-letter="T" data-letter-id="T9bc63092-9370-48a2-baa4-92dbffd4b365" transform="translate(36.5, 26.617)">
+			<circle class="letterCircle" cx="0" cy="0" r="11" fill="rgba(255,255,255,0.5)"></circle>
+			<text class="letterText" x="0" y="2" font-size="16" text-anchor="middle" dominant-baseline="middle">T</text>
+		</g>
+		<g class="letter" data-letter="A" data-letter-id="A6a8d5be2-ec87-4a9f-b83d-cac1c238ee98" transform="translate(63.5, 26.617)">
+			<circle class="letterCircle" cx="0" cy="0" r="11" fill="rgba(255,255,255,0.5)"></circle>
+			<text class="letterText" x="0" y="2" font-size="16" text-anchor="middle" dominant-baseline="middle">A</text>
+		</g>
+	</g>
+</svg>
+<button class="shuffle" title="Rearrange Letters">
+	<svg viewBox="0 0 24 24" width="100%" height="100%" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+		<polyline points="16 3 21 3 21 8"></polyline>
+		<line x1="4" y1="20" x2="21" y2="3"></line>
+		<polyline points="21 16 21 21 16 21"></polyline>
+		<line x1="15" y1="15" x2="21" y2="21"></line>
+		<line x1="4" y1="4" x2="9" y2="9"></line>
+	</svg>
+</button>
+
+
+
+
+<span class="currentWord"></span>
+
+<div id="menuCheck">
+	<!-- Hack these to act like a button -->
+	<input id="menuCheckBox" type="checkbox" name="Menu Checkbox" value="menuCheckBox">
+	<label for="menuCheckBox" title="Toggle Menu">
+		<span class="wordsComplete">
+			<span class="foundWords">0</span>
+			<hr />
+			<span class="totalWords"></span>
+		</span>
+	</label>
+	<!-- Your menu stuff. Buttons and such -->
+	<div class="menu">
+		<div class="header">All possible<br />3+ letter words</div>
+		<div class="menuInner">
+		</div>
+	</div>
+</div>
+
+
+<div id="menuCheckL">
+	
+	<input id="menuCheckBoxL" type="checkbox" name="Menu Checkbox" value="menuCheckBox">
+	<label for="menuCheckBoxL" class="awards" title="Toggle Menu">
+		<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="coinDestination">
+		<circle cx="12" cy="8" r="7"></circle>
+		<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+	</svg>
+	</label>
+	
+	<div class="menu">
+		<div class="header">Awards</div>
+		<div class="menuInner">
+			<div class="menuInstructions">
+				You have earned
+				<br/>
+				<span class="awardCounter">0</span>
+				<br/>
+				coins!
+				<br/>
+				<br/>
+				You can use coins to show hints!
+			</div>
+		</div>
+	</div>
+</div>
+
+<button class="newGame" title="Start a New Game">New Game</button>
+
+<div class="level" title="Level">1</div>
+
+<div class="coinSource"></div>
+
+<script src="script.js"></script>
