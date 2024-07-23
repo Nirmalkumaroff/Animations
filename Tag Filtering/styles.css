@@ -1,0 +1,90 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	font-family: "Montserrat", "sans-serif";
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+body {
+	box-sizing: border-box;
+	font-size: 1.6rem;
+	padding: 5rem;
+	background-color: rgb(200, 159, 161);
+}
+main {
+	max-width: 100rem;
+	margin: auto;
+}
+
+.drinks {
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	row-gap: 4rem;
+	column-gap: 2rem;
+	color: #555;
+}
+.drinks__item {
+	width: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	row-gap: 2rem;
+	padding: 2rem;
+	/* box-shadow: 0 0 1rem rgba(0,0,0,.2); */
+	border-bottom: 2px solid #eee;
+	border-radius: 0.5rem;
+}
+.drinks__item img {
+	width: 100%;
+	height: 30rem;
+	object-fit: cover;
+}
+.drinks__item h3 {
+	text-transform: uppercase;
+}
+
+.drinks__tags {
+	display: flex;
+	flex-flow: row wrap;
+	column-gap: 0.8rem;
+	row-gap: 1rem;
+	color: #000;
+}
+.drinks__tag {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1.2rem;
+}
+.drinks__tag--blue {
+	background-color: rgb(135, 239, 239);
+}
+.drinks__tag--green {
+	background-color: rgb(186, 224, 129);
+}
+.drinks__tag--orange {
+	background-color: rgb(223, 143, 87);
+}
+.drinks__tag--yellow {
+	background-color: rgb(219, 181, 84);
+}
+.drinks__tag--pink {
+	background-color: rgb(191, 103, 235);
+}
+.drinks__tag--red {
+	background-color: rgb(194, 68, 68);
+	color: #fff;
+}
+.drinks__tag--grey {
+	background-color: rgb(191, 191, 191);
+}
+.tag-inactive {
+	background-color: #eee;
+	color: #000;
+}
