@@ -9,10 +9,7 @@
     --ff-sans: 'Open Sans', sans-serif;
     --ff-serif: "Special Elite", serif;
   }
-  
-  * { 
-  box-sizing: border-box;
-  }
+ 
   
   body {
     background-color: var(--clr-alert);
@@ -49,8 +46,7 @@
     padding-block: 3rem;
   }
   
-  /* TECHNIQUE STYLES START HERE
-  -------------------------------------------------------- */
+ 
   #main {
     align-items: center;
     display: flex;
